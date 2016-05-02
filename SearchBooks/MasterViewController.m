@@ -42,12 +42,11 @@
     
     UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(135,140,50,50)];
     spinner.color = [UIColor blueColor];
+    spinner.center = self.view.center;
     [spinner startAnimating];
     [self.view addSubview:spinner];
     
     [[GoodReads sharedInstance] searchBooksWithQuery:textField.text soccess:^(NSArray * _Nullable response) {
-        
-        NSLog(@"response: %@", response);
         
         self.books = [NSArray arrayWithArray:response];
         
