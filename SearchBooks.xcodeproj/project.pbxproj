@@ -10,12 +10,15 @@
 		3A5DBA021CD6C67A0037552C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5DBA011CD6C67A0037552C /* main.m */; };
 		3A5DBA051CD6C67A0037552C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5DBA041CD6C67A0037552C /* AppDelegate.m */; };
 		3A5DBA081CD6C67A0037552C /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5DBA071CD6C67A0037552C /* MasterViewController.m */; };
-		3A5DBA0B1CD6C67A0037552C /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5DBA0A1CD6C67A0037552C /* DetailViewController.m */; };
+		3A5DBA0B1CD6C67A0037552C /* BookDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5DBA0A1CD6C67A0037552C /* BookDetailViewController.m */; };
 		3A5DBA0E1CD6C67B0037552C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A5DBA0C1CD6C67A0037552C /* Main.storyboard */; };
 		3A5DBA101CD6C67B0037552C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A5DBA0F1CD6C67B0037552C /* Assets.xcassets */; };
 		3A5DBA131CD6C67B0037552C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A5DBA111CD6C67B0037552C /* LaunchScreen.storyboard */; };
 		3A5DBA1E1CD6C67B0037552C /* SearchBooksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5DBA1D1CD6C67B0037552C /* SearchBooksTests.m */; };
 		3A5DBA291CD6C67B0037552C /* SearchBooksUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5DBA281CD6C67B0037552C /* SearchBooksUITests.m */; };
+		3A5DBA381CD6CC590037552C /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5DBA371CD6CC590037552C /* Book.m */; };
+		3A5DBA3B1CD6CD670037552C /* GoodReads.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5DBA3A1CD6CD670037552C /* GoodReads.m */; };
+		3A5DBA3E1CD78ED60037552C /* BookParserOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5DBA3D1CD78ED60037552C /* BookParserOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,8 +45,8 @@
 		3A5DBA041CD6C67A0037552C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3A5DBA061CD6C67A0037552C /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
 		3A5DBA071CD6C67A0037552C /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		3A5DBA091CD6C67A0037552C /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		3A5DBA0A1CD6C67A0037552C /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		3A5DBA091CD6C67A0037552C /* BookDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookDetailViewController.h; sourceTree = "<group>"; };
+		3A5DBA0A1CD6C67A0037552C /* BookDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookDetailViewController.m; sourceTree = "<group>"; };
 		3A5DBA0D1CD6C67B0037552C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3A5DBA0F1CD6C67B0037552C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A5DBA121CD6C67B0037552C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,6 +57,12 @@
 		3A5DBA241CD6C67B0037552C /* SearchBooksUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SearchBooksUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A5DBA281CD6C67B0037552C /* SearchBooksUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchBooksUITests.m; sourceTree = "<group>"; };
 		3A5DBA2A1CD6C67B0037552C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A5DBA361CD6CC590037552C /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
+		3A5DBA371CD6CC590037552C /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
+		3A5DBA391CD6CD670037552C /* GoodReads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodReads.h; sourceTree = "<group>"; };
+		3A5DBA3A1CD6CD670037552C /* GoodReads.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodReads.m; sourceTree = "<group>"; };
+		3A5DBA3C1CD78ED60037552C /* BookParserOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookParserOperation.h; sourceTree = "<group>"; };
+		3A5DBA3D1CD78ED60037552C /* BookParserOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookParserOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,8 +117,14 @@
 				3A5DBA041CD6C67A0037552C /* AppDelegate.m */,
 				3A5DBA061CD6C67A0037552C /* MasterViewController.h */,
 				3A5DBA071CD6C67A0037552C /* MasterViewController.m */,
-				3A5DBA091CD6C67A0037552C /* DetailViewController.h */,
-				3A5DBA0A1CD6C67A0037552C /* DetailViewController.m */,
+				3A5DBA091CD6C67A0037552C /* BookDetailViewController.h */,
+				3A5DBA0A1CD6C67A0037552C /* BookDetailViewController.m */,
+				3A5DBA361CD6CC590037552C /* Book.h */,
+				3A5DBA371CD6CC590037552C /* Book.m */,
+				3A5DBA3C1CD78ED60037552C /* BookParserOperation.h */,
+				3A5DBA3D1CD78ED60037552C /* BookParserOperation.m */,
+				3A5DBA391CD6CD670037552C /* GoodReads.h */,
+				3A5DBA3A1CD6CD670037552C /* GoodReads.m */,
 				3A5DBA0C1CD6C67A0037552C /* Main.storyboard */,
 				3A5DBA0F1CD6C67B0037552C /* Assets.xcassets */,
 				3A5DBA111CD6C67B0037552C /* LaunchScreen.storyboard */,
@@ -275,10 +290,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A5DBA381CD6CC590037552C /* Book.m in Sources */,
 				3A5DBA051CD6C67A0037552C /* AppDelegate.m in Sources */,
+				3A5DBA3E1CD78ED60037552C /* BookParserOperation.m in Sources */,
+				3A5DBA3B1CD6CD670037552C /* GoodReads.m in Sources */,
 				3A5DBA081CD6C67A0037552C /* MasterViewController.m in Sources */,
 				3A5DBA021CD6C67A0037552C /* main.m in Sources */,
-				3A5DBA0B1CD6C67A0037552C /* DetailViewController.m in Sources */,
+				3A5DBA0B1CD6C67A0037552C /* BookDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +440,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SearchBooks/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SearchBooks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -433,6 +452,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SearchBooks/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SearchBooks;
 				PRODUCT_NAME = "$(TARGET_NAME)";

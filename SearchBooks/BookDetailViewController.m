@@ -6,13 +6,13 @@
 //  Copyright © 2016 Walter Fernandes de Carvalho. All rights reserved.
 //
 
-#import "DetailViewController.h"
+#import "BookDetailViewController.h"
 
-@interface DetailViewController ()
+@interface BookDetailViewController ()
 
 @end
 
-@implementation DetailViewController
+@implementation BookDetailViewController
 
 #pragma mark - Managing the detail item
 
@@ -28,7 +28,14 @@
 - (void)configureView {
     // Update the user interface for the detail item.
     if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
+        self.detailDescriptionLabel.text = self.detailItem.description;
+     
+        [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:self.detailItem.imageURL] queue:[NSOperationQueue new] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.bookImage setImage:[UIImage imageWithData:data]];
+            });
+        }];
     }
 }
 
