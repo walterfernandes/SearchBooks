@@ -6,7 +6,11 @@
 //  Copyright © 2016 Walter Fernandes de Carvalho. All rights reserved.
 //
 
+@import MBProgressHUD;
+@import AFNetworking;
+
 #import "MasterViewController.h"
+#import "BookCell.h"
 #import "BookDetailViewController.h"
 #import "GoodReads.h"
 #import "Book.h"
@@ -39,12 +43,8 @@
 #pragma mark - UITextField
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
-    
-    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(135,140,50,50)];
-    spinner.color = [UIColor blueColor];
-    spinner.center = self.view.center;
-    [spinner startAnimating];
-    [self.view addSubview:spinner];
+
+    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     
     [[GoodReads sharedInstance] searchBooksWithQuery:textField.text soccess:^(NSArray * _Nullable response) {
         
@@ -52,10 +52,10 @@
         
         [self.tableView reloadData];
         
-        [spinner removeFromSuperview];
+        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
         
     } failure:^(NSError * _Nonnull error) {
-        [spinner removeFromSuperview];
+        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"SearchBooks"
                                                         message:@"Problems on search, I'm sorry."
@@ -98,10 +98,15 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    BookCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BookCell" forIndexPath:indexPath];
 
-    NSDate *object = self.books[indexPath.row];
-    cell.textLabel.text = [object description];
+    Book *book = self.books[indexPath.row];
+    cell.titleLabel.text = book.title;
+    cell.authorLabel.text = [NSString stringWithFormat:@"by %@", book.author];
+    
+    cell.imageView.image = nil; //set to nil to remove image when reusing cell
+    [cell.imageView setImageWithURL:book.smalImageURL];
+    
     return cell;
 }
 

@@ -6,6 +6,8 @@
 //  Copyright © 2016 Walter Fernandes de Carvalho. All rights reserved.
 //
 
+@import AFNetworking;
+
 #import "AppDelegate.h"
 #import "BookDetailViewController.h"
 
@@ -21,7 +23,7 @@
     UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
     navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
     splitViewController.delegate = self;
-        
+            
     return YES;
 }
 

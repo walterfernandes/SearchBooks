@@ -6,10 +6,10 @@
 //  Copyright © 2016 Walter Fernandes de Carvalho. All rights reserved.
 //
 
-#import "BookParserOperation.h"
+#import "BookParser.h"
 #import "Book.h"
 
-@interface BookParserOperation () {
+@interface BookParser () {
 
     NSMutableArray *items;
     Book *currentItem;
@@ -23,7 +23,7 @@
 
 @end
 
-@implementation BookParserOperation
+@implementation BookParser
 
 
 -(void)parseBooksWithSucces:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure {
@@ -62,12 +62,21 @@
         
         if ([elementName isEqualToString:@"id"]) {
             [currentItem setId:[tmpString integerValue]];
-        } else if ([elementName isEqualToString:@"title"]) {
-            [currentItem setTitle:tmpString];
-        } else if ([elementName isEqualToString:@"author"]) {
-            [currentItem setAuthor:tmpString];
-        } else if ([elementName isEqualToString:@"image_url"]) {
+        }
+        else if ([elementName isEqualToString:@"title"]) {
+            [currentItem setTitle:[tmpString stringByReplacingOccurrencesOfString:@"\n" withString:@""]];
+        }
+        else if ([elementName isEqualToString:@"author"]) {
+            [currentItem setAuthor:[tmpString stringByReplacingOccurrencesOfString:@"\n" withString:@""]];
+        }
+        else if ([elementName isEqualToString:@"average_rating"]) {
+            [currentItem setRating:[tmpString floatValue]];
+        }
+        else if ([elementName isEqualToString:@"image_url"]) {
             [currentItem setImageURL:[NSURL URLWithString:tmpString]];
+        }
+        else if ([elementName isEqualToString:@"small_image_url"]) {
+            [currentItem setSmalImageURL:[NSURL URLWithString:tmpString]];
         }
         
     }

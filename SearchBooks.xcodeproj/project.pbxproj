@@ -18,7 +18,10 @@
 		3A5DBA291CD6C67B0037552C /* SearchBooksUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5DBA281CD6C67B0037552C /* SearchBooksUITests.m */; };
 		3A5DBA381CD6CC590037552C /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5DBA371CD6CC590037552C /* Book.m */; };
 		3A5DBA3B1CD6CD670037552C /* GoodReads.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5DBA3A1CD6CD670037552C /* GoodReads.m */; };
-		3A5DBA3E1CD78ED60037552C /* BookParserOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5DBA3D1CD78ED60037552C /* BookParserOperation.m */; };
+		3A5DBA3E1CD78ED60037552C /* BookParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5DBA3D1CD78ED60037552C /* BookParser.m */; };
+		3AB2456B1CDFBCA300813EAC /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB245691CDFBCA300813EAC /* AFNetworking.framework */; };
+		3AB2456C1CDFBCA300813EAC /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB2456A1CDFBCA300813EAC /* MBProgressHUD.framework */; };
+		3AB245731CDFDFAB00813EAC /* BookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB245721CDFDFAB00813EAC /* BookCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,8 +64,12 @@
 		3A5DBA371CD6CC590037552C /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
 		3A5DBA391CD6CD670037552C /* GoodReads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodReads.h; sourceTree = "<group>"; };
 		3A5DBA3A1CD6CD670037552C /* GoodReads.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodReads.m; sourceTree = "<group>"; };
-		3A5DBA3C1CD78ED60037552C /* BookParserOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookParserOperation.h; sourceTree = "<group>"; };
-		3A5DBA3D1CD78ED60037552C /* BookParserOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookParserOperation.m; sourceTree = "<group>"; };
+		3A5DBA3C1CD78ED60037552C /* BookParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookParser.h; sourceTree = "<group>"; };
+		3A5DBA3D1CD78ED60037552C /* BookParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookParser.m; sourceTree = "<group>"; };
+		3AB245691CDFBCA300813EAC /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = Carthage/Build/iOS/AFNetworking.framework; sourceTree = "<group>"; };
+		3AB2456A1CDFBCA300813EAC /* MBProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MBProgressHUD.framework; path = Carthage/Build/iOS/MBProgressHUD.framework; sourceTree = "<group>"; };
+		3AB245711CDFDFAB00813EAC /* BookCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookCell.h; sourceTree = "<group>"; };
+		3AB245721CDFDFAB00813EAC /* BookCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +77,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AB2456B1CDFBCA300813EAC /* AFNetworking.framework in Frameworks */,
+				3AB2456C1CDFBCA300813EAC /* MBProgressHUD.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +102,8 @@
 		3A5DB9F41CD6C67A0037552C = {
 			isa = PBXGroup;
 			children = (
+				3AB245691CDFBCA300813EAC /* AFNetworking.framework */,
+				3AB2456A1CDFBCA300813EAC /* MBProgressHUD.framework */,
 				3A5DB9FF1CD6C67A0037552C /* SearchBooks */,
 				3A5DBA1C1CD6C67B0037552C /* SearchBooksTests */,
 				3A5DBA271CD6C67B0037552C /* SearchBooksUITests */,
@@ -117,12 +128,14 @@
 				3A5DBA041CD6C67A0037552C /* AppDelegate.m */,
 				3A5DBA061CD6C67A0037552C /* MasterViewController.h */,
 				3A5DBA071CD6C67A0037552C /* MasterViewController.m */,
+				3AB245711CDFDFAB00813EAC /* BookCell.h */,
+				3AB245721CDFDFAB00813EAC /* BookCell.m */,
 				3A5DBA091CD6C67A0037552C /* BookDetailViewController.h */,
 				3A5DBA0A1CD6C67A0037552C /* BookDetailViewController.m */,
 				3A5DBA361CD6CC590037552C /* Book.h */,
 				3A5DBA371CD6CC590037552C /* Book.m */,
-				3A5DBA3C1CD78ED60037552C /* BookParserOperation.h */,
-				3A5DBA3D1CD78ED60037552C /* BookParserOperation.m */,
+				3A5DBA3C1CD78ED60037552C /* BookParser.h */,
+				3A5DBA3D1CD78ED60037552C /* BookParser.m */,
 				3A5DBA391CD6CD670037552C /* GoodReads.h */,
 				3A5DBA3A1CD6CD670037552C /* GoodReads.m */,
 				3A5DBA0C1CD6C67A0037552C /* Main.storyboard */,
@@ -170,6 +183,7 @@
 				3A5DB9F91CD6C67A0037552C /* Sources */,
 				3A5DB9FA1CD6C67A0037552C /* Frameworks */,
 				3A5DB9FB1CD6C67A0037552C /* Resources */,
+				3AB2456D1CDFBD0900813EAC /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -285,14 +299,33 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3AB2456D1CDFBD0900813EAC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/AFNetworking.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/MBProgressHUD.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3A5DB9F91CD6C67A0037552C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AB245731CDFDFAB00813EAC /* BookCell.m in Sources */,
 				3A5DBA381CD6CC590037552C /* Book.m in Sources */,
 				3A5DBA051CD6C67A0037552C /* AppDelegate.m in Sources */,
-				3A5DBA3E1CD78ED60037552C /* BookParserOperation.m in Sources */,
+				3A5DBA3E1CD78ED60037552C /* BookParser.m in Sources */,
 				3A5DBA3B1CD6CD670037552C /* GoodReads.m in Sources */,
 				3A5DBA081CD6C67A0037552C /* MasterViewController.m in Sources */,
 				3A5DBA021CD6C67A0037552C /* main.m in Sources */,
@@ -439,11 +472,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SearchBooks/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SearchBooks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SearchBooks/SearchBooks-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -451,11 +491,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SearchBooks/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SearchBooks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SearchBooks/SearchBooks-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -524,6 +570,7 @@
 				3A5DBA2F1CD6C67B0037552C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3A5DBA301CD6C67B0037552C /* Build configuration list for PBXNativeTarget "SearchBooksTests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +579,7 @@
 				3A5DBA321CD6C67B0037552C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3A5DBA331CD6C67B0037552C /* Build configuration list for PBXNativeTarget "SearchBooksUITests" */ = {
 			isa = XCConfigurationList;
@@ -540,6 +588,7 @@
 				3A5DBA351CD6C67B0037552C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

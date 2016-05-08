@@ -6,6 +6,9 @@
 //  Copyright © 2016 Walter Fernandes de Carvalho. All rights reserved.
 //
 
+@import MBProgressHUD;
+@import AFNetworking;
+
 #import "BookDetailViewController.h"
 
 @interface BookDetailViewController ()
@@ -28,14 +31,29 @@
 - (void)configureView {
     // Update the user interface for the detail item.
     if (self.detailItem) {
-        self.detailDescriptionLabel.text = self.detailItem.description;
-     
-        [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:self.detailItem.imageURL] queue:[NSOperationQueue new] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.bookImage setImage:[UIImage imageWithData:data]];
-            });
-        }];
+        self.titleLabel.text = self.detailItem.title;
+        self.authorLabel.text = [NSString stringWithFormat:@"by %@", self.detailItem.author];
+
+        if (self.detailItem.rating > 4.5f) {
+            self.ratingLabel.text = @"⭐︎⭐︎⭐︎⭐︎⭐︎";
+        }
+        if (self.detailItem.rating > 3.5f) {
+            self.ratingLabel.text = @"⭐︎⭐︎⭐︎⭐︎☆";
+        }
+        else if (self.detailItem.rating >= 2.5f) {
+            self.ratingLabel.text = @"⭐︎⭐︎⭐︎☆☆";
+        }
+        else if (self.detailItem.rating >= 1.5f) {
+            self.ratingLabel.text = @"⭐︎⭐︎☆☆☆";
+        }
+        else if (self.detailItem.rating >= 1.0f) {
+            self.ratingLabel.text = @"⭐︎☆☆☆☆";
+        }
+        else {
+            self.ratingLabel.text = @"☆☆☆☆☆";
+        }
+        
+        [self.bookImageView setImageWithURL:self.detailItem.imageURL];
     }
 }
 

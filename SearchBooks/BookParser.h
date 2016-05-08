@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BookParserOperation : NSOperation <NSXMLParserDelegate>
+@interface BookParser : NSObject <NSXMLParserDelegate>
 
 @property (nonatomic, strong) NSXMLParser *parser;
 

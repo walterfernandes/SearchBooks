@@ -6,8 +6,10 @@
 //  Copyright © 2016 Walter Fernandes de Carvalho. All rights reserved.
 //
 
+@import AFNetworking;
+
 #import "GoodReads.h"
-#import "BookParserOperation.h"
+#import "BookParser.h"
 
 static NSString * const kGoodReadsKey = @"zq1d50yk5GWoBCWhfe4LmQ";
 static NSString * const kGoodReadsSecret = @"8gNv67X4myEC5hnzk5fZ5JJ1842rNz7jzalAOG4gg";
@@ -26,38 +28,31 @@ static NSString * const kGoodReadsSecret = @"8gNv67X4myEC5hnzk5fZ5JJ1842rNz7jzal
 
 -(void)searchBooksWithQuery:(NSString *)query soccess:(GoodReadsServicesSuccessBlock)success failure:(GoodReadsServicesFailureBlock)failure {
 
-    //encode query to url string
-    NSString *queryEncoded = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(
-                                                                                                   NULL,
-                                                                                                   (CFStringRef)query,
-                                                                                                   NULL,
-                                                                                                   (CFStringRef)@"!*'();:@&=+$,/?%#[]",
-                                                                                                   kCFStringEncodingUTF8 ));
+    NSString *service = @"https://www.goodreads.com/search/index.xml";
     
-    NSString *service = [NSString stringWithFormat:@"https://www.goodreads.com/search/index.xml?key=%@&q=%@", kGoodReadsKey, queryEncoded];
+    NSDictionary *parameters = @{@"key": kGoodReadsKey,
+                                 @"q": query};
     
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:service]];
+
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
-    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    [manager setResponseSerializer:[AFXMLParserResponseSerializer serializer]];
     
-    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
+    [manager GET:service parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
-        if (connectionError) {
-            //if get some connection error
-            if (failure) failure (connectionError);
-        } else {
-            
-            BookParserOperation *parserOperation = [[BookParserOperation alloc] initWithXMLParser:[[NSXMLParser alloc] initWithData:data]];
-            
-            [parserOperation parseBooksWithSucces:^(NSArray *items) {
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    if (success) success(items);
-                });
-                
-            } failure:failure];
-        }
+        BookParser *parserOperation = [[BookParser alloc] initWithXMLParser:responseObject];
+
+        [parserOperation parseBooksWithSucces:^(NSArray *items) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (success) success(items);
+            });
+        } failure:failure];
         
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"Error: %@", [error description]);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (failure) failure(error);
+        });
     }];
 }
 
